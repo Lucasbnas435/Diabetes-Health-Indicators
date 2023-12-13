@@ -3,11 +3,11 @@
 
 **Projeto ainda em desenvolvimento...**
 
-Nesse projeto, encontra-se uma análise estatística dos dados do Centers for Disease Control and Prevention (CDC) e, com isso, é gerado um modelo de Machine Learning que realiza classificação binária (binary classification), prevendo se determinada pessoa **não é diabética (0)** ou encontra-se numa condição de **pré-diabética/diabética (1)**.
+Nesse projeto, encontra-se uma análise estatística dos dados do Centers for Disease Control and Prevention (CDC) e, a partir disso, é gerado um modelo de Machine Learning que realiza classificação binária (binary classification), prevendo se determinada pessoa **não é diabética (0)** ou encontra-se numa condição de **pré-diabética/diabética (1)**.
 
 ## Dataset
 
-O Behavioral Risk Factor Surveillance System (BRFSS) é uma pesquisa telefônica relacionada à saúde realizada anualmente pelo CDC. A cada ano, são coletadas respostas de mais de 400.000 norte-americanos sobre comportamentos pessoais, fatores de risco, doenças crônicas e uso de serviços preventivos. Neste projeto, foi utilizado um conjunto de dados resultante da pesquisa conduzida em 2015, contendo 253680 respostas com 21 características indicadas diretamente pelos participantes ou calculadas com base em suas respostas individuais.
+O Behavioral Risk Factor Surveillance System (BRFSS) é uma pesquisa telefônica relacionada à saúde realizada anualmente pelo CDC. A cada ano, são coletadas respostas de mais de 400.000 norte-americanos sobre comportamentos pessoais, fatores de risco, doenças crônicas e uso de serviços preventivos. Neste projeto, utilizou-se um conjunto de dados resultante da pesquisa conduzida em 2015, contendo 253.680 respostas com 21 características indicadas diretamente pelos participantes ou calculadas com base em suas respostas individuais.
 
 Variáveis contidas no dataset:
 
@@ -33,6 +33,16 @@ Variáveis contidas no dataset:
 - Age: 13 categorias de idade (18-24 anos, 25-29, ..., 75-79, 80 anos ou mais)
 - Education: 6 níveis de escolaridade completa (1 = nunca foi à escola; 6 = completou o College)
 - Income: 8 níveis de renda anual daquele domicílio (1 = menos de US$ 10000; 8 = US$ 75000 ou mais)
+
+## Desenvolvimento do Projeto
+
+A aplicação foi desenvolvida em Python 3.10, utilizando um [Jupyter Notebook](https://jupyter.org/) hospedado e executado na plataforma [Google Colaboratory](https://colab.research.google.com/). Ademais, foram utilizadas as bibliotecas [Pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/), [SciPy](https://docs.scipy.org/doc/scipy/), [Imbalanced-learn](https://imbalanced-learn.org/stable/), [LightGBM](https://lightgbm.readthedocs.io/en/stable/), [Scikit-learn](https://scikit-learn.org/stable/), [XGBoost](https://xgboost.readthedocs.io/en/stable/) e [Joblib](https://joblib.readthedocs.io/en/stable/).
+
+O notebook diabetes_health_indicators.ipynb apresenta, inicialmente, a exploração e a visualização dos dados, expondo informações e gráficos diversos que atuam como referências fundamentais para a Análise Exploratória. Ao longo do código, são feitos comentários exibindo ideias obtidas a partir do conjunto de dados e a linha de raciocínio percorrida na tomada de decisões.
+
+Em seguida, tendo como base as observações e conclusões alcançadas na etapa anterior, realiza-se o Feature Scaling (normalização usando o Min-Max Scaler, visto que as variáveis envolvidas nesse processo não estavam normalmente distribuídas). Então, prosseguindo com a abordagem estatística do dataset, é feito o Teste do Qui-quadrado de Pearson entre as variáveis categóricas e Diabetes_binary (target variable), evidenciando que a hipótese nula (afirmação de que os valores comparados são estatisticamente independentes) foi recusada em todos os casos. Assim, não havendo eliminações por conta desse teste de hipótese, as colunas menos correlacionadas com o alvo foram excluídas.
+
+Na sequência, sabendo que os dados estavam desbalanceados (84,71% de não diabéticos; 15,29% de pré-diabéticos ou diabéticos), efetuou-se oversampling e, logo após, a divisão do dataset entre parte de treinamento e parte de testes. Completando isso, executa-se o treinamento dos modelos com os algoritmos XGBoost, Decision Tree, Random Forest e LightGBM. Por fim, tais modelos são salvos e exportados, viabilizando seu compartilhamento e uso em outros locais.
 
 ## Fonte dos Dados
 Os dados utilizados estão disponíveis em:
