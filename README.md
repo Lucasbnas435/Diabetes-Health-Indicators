@@ -1,8 +1,6 @@
 # Diabetes Health Indicators - Data Science & Machine Learning
 ### [Autor: Lucas Barbosa Nascimento](https://github.com/Lucasbnas435)
 
-**Projeto ainda em desenvolvimento...**
-
 Nesse projeto, encontra-se uma análise estatística dos dados do Centers for Disease Control and Prevention (CDC) e, a partir disso, é gerado um modelo de Machine Learning que realiza classificação binária (binary classification), prevendo se determinada pessoa **não é diabética (0)** ou encontra-se numa condição de **pré-diabética/diabética (1)**.
 
 ## Dataset
@@ -44,13 +42,54 @@ Em seguida, tendo como base as observações e conclusões alcançadas na etapa 
 
 Na sequência, sabendo que os dados estavam desbalanceados (84,71% de não diabéticos; 15,29% de pré-diabéticos ou diabéticos), efetuou-se oversampling e, logo após, a divisão do dataset entre parte de treinamento e parte de testes. Completando isso, executa-se o treinamento dos modelos com os algoritmos XGBoost, Decision Tree, Random Forest e LightGBM. Por fim, tais modelos são salvos e exportados, viabilizando seu compartilhamento e uso em outros locais.
 
+## Resultados
+
+Com o algoritmo XGBoost, alcançou-se uma acurácia de **78,56%**. Esse dado, a matriz de confusão e o classification report estão expostos logo abaixo:
+
+![](https://github.com/Lucasbnas435/Diabetes-Health-Indicators/blob/master/src/docs/XGBoost_results.png?raw=true)
+
+Empregando-se Decision Tree, obteve-se uma acurácia de **91,50%**. Esse dado, a matriz de confusão e o classification report estão expostos logo abaixo:
+
+![](https://github.com/Lucasbnas435/Diabetes-Health-Indicators/blob/master/src/docs/DecisionTree_results.png?raw=true)
+
+Com o algoritmo Random Forest, por sua vez, atingiu-se uma acurácia de **93,96%**. Esse dado, a matriz de confusão e o classification report estão expostos logo abaixo:
+
+![](https://github.com/Lucasbnas435/Diabetes-Health-Indicators/blob/master/src/docs/RandomForest_results.png?raw=true)
+
+O modelo produzido com LightGBM apresenta acurácia de **74,59%**. Esse dado, a matriz de confusão e o classification report estão expostos logo abaixo:
+
+![](https://github.com/Lucasbnas435/Diabetes-Health-Indicators/blob/master/src/docs/LightGBM_results.png?raw=true)
+
+## Estrutura de Pastas
+
+```
+.
+├── README.md
+└── src
+    ├── dataset
+    │   └── diabetes_binary_health_indicators_BRFSS2015.csv
+    ├── docs
+    │   ├── DecisionTree_results.png
+    │   ├── LightGBM_results.png
+    │   ├── RandomForest_results.png
+    │   └── XGBoost_results.png
+    ├── models
+    │   ├── DecisionTreeModel.joblib
+    │   ├── LightGBMModel.pkl
+    │   └── XGBoostModel.json
+    └── notebook
+        └── diabetes_health_indicators.ipynb
+```
+
 ## Fonte dos Dados
+
 Os dados utilizados estão disponíveis em:
 
 - https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators
 - https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset
 
 ## Contato
+
 Muito obrigado por acessar esse projeto!
 
 Vamos nos conectar?
